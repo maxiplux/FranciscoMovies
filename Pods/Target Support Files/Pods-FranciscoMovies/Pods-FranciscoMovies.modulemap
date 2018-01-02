@@ -1,0 +1,6 @@
+framework module Pods_FranciscoMovies {
+  umbrella header "Pods-FranciscoMovies-umbrella.h"
+
+  export *
+  module * { export * }
+}

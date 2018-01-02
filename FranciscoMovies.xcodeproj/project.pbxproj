@@ -13,7 +13,6 @@
 		0D54E95B1FFB26E800A51F16 /* ShowMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D54E95A1FFB26E800A51F16 /* ShowMovie.swift */; };
 		0D54E95E1FFB293B00A51F16 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D54E95D1FFB293B00A51F16 /* MovieCell.swift */; };
 		0D7886921FFAAA7F00EB8C72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7886911FFAAA7F00EB8C72 /* AppDelegate.swift */; };
-		0D7886941FFAAA7F00EB8C72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7886931FFAAA7F00EB8C72 /* ViewController.swift */; };
 		0D7886971FFAAA7F00EB8C72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D7886951FFAAA7F00EB8C72 /* Main.storyboard */; };
 		0D78869A1FFAAA7F00EB8C72 /* FranciscoMovies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D7886981FFAAA7F00EB8C72 /* FranciscoMovies.xcdatamodeld */; };
 		0D78869C1FFAAA7F00EB8C72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D78869B1FFAAA7F00EB8C72 /* Assets.xcassets */; };
@@ -35,7 +34,6 @@
 		0D54E95D1FFB293B00A51F16 /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		0D78868E1FFAAA7F00EB8C72 /* FranciscoMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FranciscoMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D7886911FFAAA7F00EB8C72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0D7886931FFAAA7F00EB8C72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0D7886961FFAAA7F00EB8C72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0D7886991FFAAA7F00EB8C72 /* FranciscoMovies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FranciscoMovies.xcdatamodel; sourceTree = "<group>"; };
 		0D78869B1FFAAA7F00EB8C72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -72,6 +70,14 @@
 			path = adapters;
 			sourceTree = "<group>";
 		};
+		0D54E95F1FFBD71800A51F16 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				0D7886911FFAAA7F00EB8C72 /* AppDelegate.swift */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
 		0D7886851FFAAA7F00EB8C72 = {
 			isa = PBXGroup;
 			children = (
@@ -94,11 +100,10 @@
 		0D7886901FFAAA7F00EB8C72 /* FranciscoMovies */ = {
 			isa = PBXGroup;
 			children = (
+				0D54E95F1FFBD71800A51F16 /* settings */,
 				0D7886981FFAAA7F00EB8C72 /* FranciscoMovies.xcdatamodeld */,
 				0DEECFB21FFAED3600EE1543 /* apps */,
-				0D7886911FFAAA7F00EB8C72 /* AppDelegate.swift */,
 				0D7886A81FFAADAF00EB8C72 /* CoreDataStack.swift */,
-				0D7886931FFAAA7F00EB8C72 /* ViewController.swift */,
 				0D7886951FFAAA7F00EB8C72 /* Main.storyboard */,
 				0D78869B1FFAAA7F00EB8C72 /* Assets.xcassets */,
 				0D78869D1FFAAA7F00EB8C72 /* LaunchScreen.storyboard */,
@@ -328,7 +333,6 @@
 				0D54E95E1FFB293B00A51F16 /* MovieCell.swift in Sources */,
 				0D78869A1FFAAA7F00EB8C72 /* FranciscoMovies.xcdatamodeld in Sources */,
 				0D54E95B1FFB26E800A51F16 /* ShowMovie.swift in Sources */,
-				0D7886941FFAAA7F00EB8C72 /* ViewController.swift in Sources */,
 				0D7886921FFAAA7F00EB8C72 /* AppDelegate.swift in Sources */,
 				0D54E9571FFB1C2100A51F16 /* LocalCoreDataService.swift in Sources */,
 				0DEECFBE1FFB015500EE1543 /* MovieManaged.Ext.swift in Sources */,

@@ -45,7 +45,7 @@ class LocalCoreDataService {
             
             
             if let movies = movies {
-                print("no se que pasa con getTopMovies en servicio \(movies.count)")
+              
                 
                 
                 self.markAllMoviesAsUnsync()
@@ -58,12 +58,12 @@ class LocalCoreDataService {
                     
                     if let movie = self.getMovieById(id: movieDictionary["id"]!, favorite: false)
                     {
-                       print ("estoy en un update  ")
+                       
                         self.updateMovie(movieDictionary: movieDictionary, movie: movie, order: order)
                     }
                     else
                     {
-                        print ("estoy en un insert ")
+                         
                         self.insertMovie(movieDictionary: movieDictionary, order: order)
                     }
                     
@@ -85,23 +85,25 @@ class LocalCoreDataService {
     }
     
     func queryTopMovies() -> [Movie]? {
-        
+        print ("Estamos probando la consulta de todos")
         let context = stack.persistentContainer.viewContext
         let request : NSFetchRequest<MovieManaged> = MovieManaged.fetchRequest()
         
         let sortDescriptor = NSSortDescriptor(key: "order", ascending: true)
         request.sortDescriptors = [sortDescriptor]
         
-        let predicate = NSPredicate(format: "favorite = \(false)")
-        request.predicate = predicate
+        //let predicate = NSPredicate(format: "favorite = \(false)")
+        //request.predicate = predicate
         
         do {
             
             let fetchedMovies = try context.fetch(request)
             
             var movies = [Movie]()
-            for managedMovie in fetchedMovies {
+            for managedMovie in fetchedMovies
+            {
                 movies.append(managedMovie.mappedObject())
+                 print ("estamos en el retorno de la consulta")
             }
             return movies
             
@@ -276,13 +278,18 @@ class LocalCoreDataService {
             }
             
         }
-        
+        // cada ves que se agrega un elemento a favoritos
+        // se incrementa o decrementa
         updateFavoritesBadge()
 
     }
     
-    func updateFavoritesBadge() {
-        if let totalFavorites = getFavoriteMovies()?.count {
+    // esta funcion esta mal , porque hace cosas de mas
+    // esta funcion  envia al observable el valor del badget , para incrementarlo o decrementarlo
+    func updateFavoritesBadge()
+    {
+        if let totalFavorites = getFavoriteMovies()?.count
+        {
             let notification = Notification(name: Notification.Name("updateFavoritesBadgeNotification"), object: totalFavorites, userInfo: nil)
             NotificationCenter.default.post(notification)
         }

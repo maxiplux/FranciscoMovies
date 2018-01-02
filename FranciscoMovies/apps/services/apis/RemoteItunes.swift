@@ -38,6 +38,9 @@ class RemoteItunes {
                         movie["title"] = entry["im:name"]["label"].stringValue
                         movie["summary"] = entry["summary"]["label"].stringValue
                         movie["image"] = entry["im:image"][0]["label"].stringValue.replacingOccurrences(of: "60x60", with: "500x500")
+                        
+                        
+                        //print ("la imagen que vamos a buscar es con el nombre \(movie["title"]) \(movie["image"] )")
                         movie["category"] = entry["category"]["attributes"]["label"].stringValue
                         movie["director"] = entry["im:artist"]["label"].stringValue
                         result.append(movie)
@@ -75,9 +78,10 @@ class RemoteItunes {
                         movie["title"] = entry["trackName"].stringValue
                         movie["summary"] = entry["longDescription"].stringValue
                         movie["image"] = entry["artworkUrl100"].stringValue.replacingOccurrences(of: "100x100", with: "500x500")
+                        print ("\(movie["image"])")
                         movie["category"] = entry["primaryGenreName"].stringValue
                         movie["director"] = entry["artistName"].stringValue
-                        print(movie)
+                        
                         result.append(movie)
                     }
                 }
