@@ -16,9 +16,18 @@ import Foundation
 //
 
 import UIKit
+import Kingfisher
 
 class ShowMovie: UIViewController {
+    @IBOutlet weak var btnFavorite: UIButton!
+    @IBOutlet weak var movieImage: UIImageView!
+    @IBOutlet weak var movieSummary: UITextView!
+    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var movieCategory: UILabel!
+    @IBOutlet weak var movieDirector: UILabel!
     
+    let dataProvider = LocalCoreDataService()
+    var movie : Movie?
     
     override func viewDidLoad() {
         super.viewDidLoad()

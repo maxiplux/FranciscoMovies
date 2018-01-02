@@ -34,6 +34,12 @@ class TopMovies: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         
         loadData()
         
+        refresh.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
+        collectionView.refreshControl?.tintColor = UIColor.white
+        collectionView.refreshControl = refresh
+        
+        setCollectionViewPadding()
+        
         // Do any additional setup after loading the view, typically from a nib.
         
     }
@@ -90,14 +96,20 @@ class TopMovies: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     }
     
     
-    func loadData() {
+    @objc func loadData() {
         
         dataProvider.getTopMovies(localHandler: { movies in
             
             if let movies = movies
             {
-                self.movies = movies
+                print ("estoy en un metodo loadData")
+              
+                  self.movies = movies
+                  print (movies.count)
+                
                 DispatchQueue.main.async {
+                    print ("estoy en un metodo asincrono")
+                    print (movies.count)
                     self.collectionView.reloadData()
                 }
             } else {
@@ -106,16 +118,30 @@ class TopMovies: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             
         }, remoteHandler: { movies in
             
-            if let movies = movies {
+            if let movies = movies
+            {
+                print ("estoy en un metodo remoteHandler")
+                print (movies.count)
                 self.movies = movies
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                     self.refresh.endRefreshing()
-                }
+              }
             }
             
         })
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailSegue" {
+            if let indexPathSelected = collectionView.indexPathsForSelectedItems?.last {
+                let selectedMovie = movies[indexPathSelected.row]
+                let detailVC = segue.destination as! ShowMovie
+                detailVC.movie = selectedMovie
+            }
+            hideKeyboard()
+        }
     }
     
     //ocultar el teclado

@@ -41,7 +41,9 @@ class RemoteItunes {
                         movie["category"] = entry["category"]["attributes"]["label"].stringValue
                         movie["director"] = entry["im:artist"]["label"].stringValue
                         result.append(movie)
+                        
                     }
+                   
                     completionHandler(result)
                 }
                 
@@ -75,6 +77,7 @@ class RemoteItunes {
                         movie["image"] = entry["artworkUrl100"].stringValue.replacingOccurrences(of: "100x100", with: "500x500")
                         movie["category"] = entry["primaryGenreName"].stringValue
                         movie["director"] = entry["artistName"].stringValue
+                        print(movie)
                         result.append(movie)
                     }
                 }

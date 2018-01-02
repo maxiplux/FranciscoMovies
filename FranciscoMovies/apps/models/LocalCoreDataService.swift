@@ -42,17 +42,28 @@ class LocalCoreDataService {
         
         remoteMovieService.getTopMovies() { movies in
             
+            
+            
             if let movies = movies {
+                print("no se que pasa con getTopMovies en servicio \(movies.count)")
+                
                 
                 self.markAllMoviesAsUnsync()
                 
                 var order = 1
                 
-                for movieDictionary in movies {
+                for movieDictionary in movies
+                {
                     
-                    if let movie = self.getMovieById(id: movieDictionary["id"]!, favorite: false) {
+                    
+                    if let movie = self.getMovieById(id: movieDictionary["id"]!, favorite: false)
+                    {
+                       print ("estoy en un update  ")
                         self.updateMovie(movieDictionary: movieDictionary, movie: movie, order: order)
-                    } else {
+                    }
+                    else
+                    {
+                        print ("estoy en un insert ")
                         self.insertMovie(movieDictionary: movieDictionary, order: order)
                     }
                     
@@ -172,6 +183,7 @@ class LocalCoreDataService {
         
         do {
             try context.save()
+            print ("todo salio bien en el contexto")
         } catch {
             print("Error while updating Core Data")
         }

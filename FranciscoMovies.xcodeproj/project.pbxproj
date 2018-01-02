@@ -94,6 +94,7 @@
 		0D7886901FFAAA7F00EB8C72 /* FranciscoMovies */ = {
 			isa = PBXGroup;
 			children = (
+				0D7886981FFAAA7F00EB8C72 /* FranciscoMovies.xcdatamodeld */,
 				0DEECFB21FFAED3600EE1543 /* apps */,
 				0D7886911FFAAA7F00EB8C72 /* AppDelegate.swift */,
 				0D7886A81FFAADAF00EB8C72 /* CoreDataStack.swift */,
@@ -147,7 +148,6 @@
 		0DEECFBB1FFB013500EE1543 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				0D7886981FFAAA7F00EB8C72 /* FranciscoMovies.xcdatamodeld */,
 				0D54E9561FFB1C2000A51F16 /* LocalCoreDataService.swift */,
 				0DEECFBF1FFB017300EE1543 /* plains */,
 				0DEECFBC1FFB014400EE1543 /* extensions */,
